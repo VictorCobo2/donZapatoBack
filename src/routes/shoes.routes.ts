@@ -1,6 +1,7 @@
 import express from "express"
-import { add_shoe } from "../controller/shoes.controller";
+import { addShoe, getAll } from "../controller/shoes.controller";
 
 export const shoes_route = express.Router();
 
-shoes_route.post("/shoes/add", add_shoe)
+shoes_route.post("/shoes/add", addShoe)
+shoes_route.get("/shoes/all", getAll)

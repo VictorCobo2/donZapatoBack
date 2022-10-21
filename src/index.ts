@@ -1,11 +1,15 @@
 import mongoose from "mongoose";
 import express, { NextFunction, Request, Response } from "express";
+import dotenv from "dotenv";
 import "dotenv/config";
 //rutas----------------------------------------
 import * as routes from "./routes/index"
 
+
 const port = process.env.PORT || 9000;
 const app = express();
+ 
+dotenv.config();
 
 //MIDELWAR
 app.use((req: Request, res: Response, next: NextFunction) => {
@@ -28,7 +32,8 @@ app.get("/", (req, res) => {
 });
 
 mongoose
-  .connect(`mongodb://localhost:27017/shoeDB`)
+  //.connect(`mongodb://localhost:27017/shoeDB`)
+  .connect(`${process.env.MONGO_URI}`)
   .then(() => console.log("Conectado a mongo correctamente 🟢"))
   .catch((error) => {
     console.log("No se pudo conectar a la DB  🔴");

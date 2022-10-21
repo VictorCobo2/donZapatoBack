@@ -12,7 +12,8 @@ interface shoe {
 const shoe_schema = new Schema<shoe>({
     referencia:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     marca:{
         type:String,
