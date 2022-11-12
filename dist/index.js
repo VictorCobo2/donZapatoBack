@@ -50,8 +50,8 @@ app.get("/", (req, res) => {
     res.send(`Funciona la api en el puerto ${port}`);
 });
 mongoose_1.default
-    //.connect(`mongodb://localhost:27017/shoeDB`)
-    .connect(`${process.env.MONGO_URI}`)
+    .connect(`mongodb://localhost:27017/shoeDB`)
+    //.connect(`${process.env.MONGO_URI}`)
     .then(() => console.log("Conectado a mongo correctamente 🟢"))
     .catch((error) => {
     console.log("No se pudo conectar a la DB  🔴");
