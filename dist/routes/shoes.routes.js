@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const shoes_controller_1 = require("../controller/shoes.controller");
 const multer_1 = __importDefault(require("multer"));
 const path_1 = __importDefault(require("path"));
+console.clear();
 let storage = multer_1.default.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "./csv");
@@ -21,3 +22,5 @@ exports.shoes_route = express_1.default.Router();
 exports.shoes_route.post("/shoes/add", shoes_controller_1.addShoe);
 exports.shoes_route.get("/shoes/all", shoes_controller_1.getAll);
 exports.shoes_route.post("/shoes/csv", upload.single('file'), shoes_controller_1.postCsv);
+exports.shoes_route.delete("/shoes/delete/:id", shoes_controller_1.deleteShoe);
+exports.shoes_route.put("/shoes/edit", shoes_controller_1.putShoes);

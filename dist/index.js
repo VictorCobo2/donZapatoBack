@@ -44,7 +44,7 @@ app.use((req, res, next) => {
     res.header("Allow", "GET, POST, OPTIONS, PUT, DELETE");
     next();
 });
-app.use(express_1.default.json());
+app.use(express_1.default.json({ limit: '50mb' }));
 app.use("/api", routes.SHOES);
 app.get("/", (req, res) => {
     res.send(`Funciona la api en el puerto ${port}`);

@@ -5,7 +5,7 @@ const mongoose_1 = require("mongoose");
 const shoe_schema = new mongoose_1.Schema({
     referencia: {
         type: String,
-        required: true,
+        required: [true, "La referencia es requerida"],
         unique: true
     },
     marca: {
@@ -13,7 +13,7 @@ const shoe_schema = new mongoose_1.Schema({
         required: true
     },
     stock: {
-        type: String,
+        type: Number,
         required: true
     },
     p_compra: {
@@ -26,7 +26,17 @@ const shoe_schema = new mongoose_1.Schema({
     },
     image: {
         type: String,
-        required: true
+        //required:true
     },
+});
+shoe_schema.pre("save", function (next) {
+    const compra = this.p_compra.split(".");
+    const venta = this.p_venta.split(".");
+    if (compra.join('') && venta.join('')) {
+        next();
+    }
+    else {
+        next(new Error("Datos invalidos"));
+    }
 });
 exports.shoe_model = (0, mongoose_1.model)("shoes", shoe_schema);
