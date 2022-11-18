@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "nodemon ./src/index.ts",
     "start": "tsc & node dist/index.js",
-    "build": "",
-    "test": "mocha --recursive test"
+    "build": ""
   },
   "author": "UCC",
   "license": "ISC",
