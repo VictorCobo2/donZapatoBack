@@ -27,7 +27,7 @@ export const postCsv = async (req: Request, res: Response) => {
     await eliminarArchivo();
     res.json(data);
   } catch (error: any) {
-    await eliminarArchivo();
+    //await eliminarArchivo();
 
     if (error.code == 11000)
       res
