@@ -46,6 +46,7 @@ app.use((req, res, next) => {
 });
 app.use(express_1.default.json({ limit: '50mb' }));
 app.use("/api", routes.SHOES);
+app.use("/api", routes.USER);
 app.get("/", (req, res) => {
     res.send(`Funciona la api en el puerto ${port}`);
 });
