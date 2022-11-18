@@ -43,7 +43,7 @@ const postCsv = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.json(data);
     }
     catch (error) {
-        yield eliminarArchivo();
+        //await eliminarArchivo();
         if (error.code == 11000)
             res
                 .status(405)
