@@ -15,20 +15,31 @@ export const addShoe = async (req: Request, res: Response) => {
 
 export const getAll = async (req: Request, res: Response) => {
   try {
-    const data = await shoe_model.find({});
+    const data = await shoe_model.find({},{
+      // marca:1,
+      // p_compra:1,
+      // p_venta:1,
+      // referencia:1,
+      // stock:1,
+      // image:{$concat:["null"]},
+      // _id:0
+    });
     data ? res.json(data) : res.status(404).json({ msg: "No hay datos" });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 export const postCsv = async (req: Request, res: Response) => {
   try {
-    const jsonObj = await csvtojson().fromFile("csv/file.csv");
-    const data = await shoe_model.insertMany(jsonObj);
-    await eliminarArchivo();
+    const json = req.body
+    console.log(json)
+    const data = await shoe_model.insertMany(json);
+    //await eliminarArchivo();
     res.json(data);
   } catch (error: any) {
     //await eliminarArchivo();
-
+    //console.log(error)
     if (error.code == 11000)
       res
         .status(405)

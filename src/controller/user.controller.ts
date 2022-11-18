@@ -47,11 +47,10 @@ export const changePassword = async (req: Request, res: Response) => {
     res.status(400).send(error);
   }
 };
-
+ 
 export const login = async (req: Request, res: Response) => {
   try {
     let { password, email } = req.body;
-    console.log(req.body)
     let user = await user_model.findOne({ email: email });
     if (user) {
       const compare = await bcryptjs.compare(password, user.contrasena);

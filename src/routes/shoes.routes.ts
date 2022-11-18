@@ -20,6 +20,6 @@ export const shoes_route = express.Router();
 
 shoes_route.post("/shoes/add", addShoe)
 shoes_route.get("/shoes/all", getAll)
-shoes_route.post("/shoes/csv", upload.single('file'), postCsv)
+shoes_route.post("/shoes/csv", postCsv)
 shoes_route.delete("/shoes/delete/:id", deleteShoe) 
 shoes_route.put("/shoes/edit", putShoes)

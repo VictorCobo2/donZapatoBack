@@ -1,12 +1,12 @@
 import {Schema, model} from "mongoose";
 
 interface shoe {
-    referencia:String,
-    marca:String,
-    stock:number,
+    referencia:string,
+    marca:string,
+    stock:string,
     p_compra:string,
     p_venta:string,
-    image:String
+    image:string
 }
 
 const shoe_schema = new Schema<shoe>({
@@ -20,7 +20,7 @@ const shoe_schema = new Schema<shoe>({
         required:true
     },
     stock:{
-        type:Number,
+        type:String,
         required:true
     },
     p_compra:{

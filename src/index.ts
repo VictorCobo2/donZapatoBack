@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
 
 mongoose
   .connect(`mongodb://donzapatodb:4g8jMYKmo7jZv5Jb96ZruZ5WcreGBWUZ0EYe6vGRrjVYpIODcDpgLa4h2XvLFRzVdrbW2Bo0FvL0ACDb5jB44Q%3D%3D@donzapatodb.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@donzapatodb@`)
-  //.connect(`${process.env.MONGO_URI}`)
+  //.connect(`mongodb://localhost:27017`)
   .then(() => console.log("Conectado a mongo correctamente 🟢"))
   .catch((error) => {
     console.log("No se pudo conectar a la DB  🔴");
